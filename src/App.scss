@@ -2,14 +2,18 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.App-picture {
+  height: 30vmin;
   pointer-events: none;
+  width: 30vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .App-picture {
+    margin-bottom: 50px;
+    border-radius: 50%;
+    animation: App-picture-spin infinite 10s linear;
+
   }
 }
 
@@ -24,15 +28,15 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
+@keyframes App-picture-spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  50% {
     transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
