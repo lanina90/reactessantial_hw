@@ -2,6 +2,7 @@ import './App.scss';
 import UserList from "./components/list/UserList";
 import Counter from "./components/counter/Counter";
 import Lists from "./components/lists/Lists";
+import Task4 from "./components/task4/Task4";
 
 
 function App() {
@@ -35,9 +36,7 @@ function App() {
           побачите «Button clicked» і «Div clicked», а маєте побачити тільки повідомлення від кнопки. Розв'яжіть цю
           проблему.
         </div>
-        <div>
-
-        </div>
+        <Task4/>
       </div>
 
     </div>

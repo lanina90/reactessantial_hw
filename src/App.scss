@@ -80,3 +80,15 @@ button {
     box-shadow: none;
   }
 }
+
+.task4{
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+
+
+  &__btn{
+    margin: 60px 0;
+  }
+}
