@@ -1,16 +1,46 @@
-import picture from './picture.jpeg';
 import './App.scss';
+import UserList from "./components/list/UserList";
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello, world!</h1>
-        <img src={picture} className="App-picture" alt="picture" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt elit quis enim finibus, vitae.
-        </p>
-      </header>
+      <div className="App__task">
+        <div className='task-name'>Створіть компонент, який зображатиме список імен. Імена не мають повторюватися.
+        </div>
+          <UserList/>
+      </div>
+
+      <div className="App__task">
+        <div className='task-name'>Створіть компонент, який виводитиме 2 кнопки та лічильник. Клацанням на кнопку «+»
+          лічильник збільшується, а натисканням на кнопку «-» – зменшується.
+        </div>
+        <div>
+
+        </div>
+
+      </div>
+
+      <div className="App__task">
+        <div className='task-name'>Створіть сайт, на якому є 2 списки та кнопка. Після натискання на кнопку перший
+          елемент зі списку 1 переходить на кінець списку 2.
+        </div>
+        <div>
+
+        </div>
+      </div>
+
+      <div className="App__task">
+        <div className='task-name'>Створіть компонент, що буде рендерити div, всередині якого є кнопка. Клацанням на div
+          виведіть у консоль «Div clicked», а натисканням на кнопку – «Button clicked». Коли ви натиснете кнопку, то
+          побачите «Button clicked» і «Div clicked», а маєте побачити тільки повідомлення від кнопки. Розв'яжіть цю
+          проблему.
+        </div>
+        <div>
+
+        </div>
+      </div>
+
     </div>
   );
 }
