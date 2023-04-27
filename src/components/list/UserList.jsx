@@ -4,7 +4,6 @@ import UserData from "./UserData";
 const UserList = () => {
 
   const [users, setUsers] = useState([]);
-  const [showEmails, setShowEmails] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState(null);
 
 
