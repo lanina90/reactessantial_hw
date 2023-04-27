@@ -1,5 +1,7 @@
 import './App.scss';
 import UserList from "./components/list/UserList";
+import Counter from "./components/counter/Counter";
+
 
 function App() {
 
@@ -15,9 +17,7 @@ function App() {
         <div className='task-name'>Створіть компонент, який виводитиме 2 кнопки та лічильник. Клацанням на кнопку «+»
           лічильник збільшується, а натисканням на кнопку «-» – зменшується.
         </div>
-        <div>
-
-        </div>
+        <Counter/>
 
       </div>
 
