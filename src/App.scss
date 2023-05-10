@@ -28,6 +28,7 @@ body {
   width: 400px;
   margin: 50px auto;
   font-family: Arial, sans-serif;
+  text-align: left;
 }
 
 .todo-input {
@@ -79,3 +80,9 @@ body {
   margin-left: 10px;
 }
 
+
+.child-btn{
+  padding: 10px;
+  width: 100px;
+  border-radius: 4px;
+}
