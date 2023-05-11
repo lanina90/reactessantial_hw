@@ -3,7 +3,8 @@ const initialStore = {
   input: {
     text: '',
   },
-  tasks: [{ id: 1, text: "my first task", done: false }]
+  tasks: [{ id: 1, text: "my first task", done: false }],
+
 }
 
 export default initialStore

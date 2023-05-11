@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import Icon from "../icons/Icon";
 import {Input} from "@mui/material";
+import ToDoList from "../TODOMUI/ToDoList";
 
 
 const Task1 = () => {
 
   const [text, setText] = useState('')
-  const [tasks, setTasks] = useState([])
-  const [open, setOpen] = React.useState(false);
+  const [tasks, setTasks] = useState([{ id: 1, text: "my first task", done: false }])
 
   const textChangeHandler = (event) => {
     setText(event.target.value);
@@ -22,7 +22,6 @@ const Task1 = () => {
       };
 
       setTasks([...tasks, newItem]);
-
       setText('');
     }
   }
@@ -41,40 +40,17 @@ const Task1 = () => {
     setTasks(tasks.filter(task => task.id !== id));
   }
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
 
   return (
     <div className="todo-list">
       <h1>TODO List</h1>
       <div className="todo-input">
         <Input onChange={textChangeHandler}/>
-        {/*<input*/}
-        {/*  type="text"*/}
-        {/*  value={text}*/}
-        {/*  onChange={textChangeHandler}*/}
-        {/*  placeholder="Add a new item..." />*/}
         <button onClick={addTaskHandler}>
           <Icon type="add" />
         </button>
       </div>
-      <ul className="items-list">
-        {tasks.map(task => (
-          <li key={task.id} className={`item ${task.done ? ' done' : ''}`}>
-            {task.done ? <Icon fill="red" type="done" onClick={() => doneTaskHandler(task.id)}/> : ''}
-            <span className="item-text">{task.text}</span>
-            {task.done ? <button
-              onClick={() => doneTaskHandler(task.id)}>Remove a mark</button> : <button onClick={() => doneTaskHandler(task.id)}>Mark as Done</button> }
-            <Icon fill="red" stroke="red" type="delete" onClick={() => deleteTaskHandler(task.id)}/>
-          </li>
-        ))}
-      </ul>
+     <ToDoList tasks={tasks}/>
     </div>
   );
 };

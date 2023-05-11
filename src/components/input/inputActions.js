@@ -1,4 +1,3 @@
-
 export const SET_TEXT = 'SET_TEXT'
 
 export const setText = (text) => {
@@ -7,6 +6,7 @@ export const setText = (text) => {
     payload: text
   }
 }
+
 
 
 

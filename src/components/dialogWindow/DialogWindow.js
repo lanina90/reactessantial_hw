@@ -16,7 +16,6 @@ export default function DialogWindow() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [open, setOpen] = useState(false);
 
-
   const handleClickOpen = () => {
     setOpen(true);
   };

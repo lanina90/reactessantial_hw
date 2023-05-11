@@ -3,10 +3,10 @@ import {useDispatch, useSelector} from "react-redux";
 import Icon from "../icons/Icon";
 import {doneTaskAction, removeTaskAction} from "./toDoListActions";
 
-const ToDoList = () => {
+const ToDoList = (props) => {
 
   const dispatch = useDispatch()
-  const tasks = useSelector(state => state.tasks);
+  const tasks = props.tasks;
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import './App.scss';
 import Task1 from "../components/TODO/Task1";
 import ParentEl from "../components/counter/ParentEl";
-import Task3 from "../components/task3/Task3";
+import Task3 from "../components/dialogWindow/Task3";
 
 
 function App() {
