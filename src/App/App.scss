@@ -16,13 +16,21 @@ body {
     margin-bottom: 20px;
   }
 }
-
 .task-name {
   text-align: left;
   width: 40%;
   margin-bottom: 20px;
 }
 
+input[type="text"] {
+  flex-grow: 1;
+  height: 30px;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
 
 .todo-list {
   width: 400px;
@@ -35,15 +43,6 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-}
-
-.todo-input input[type="text"] {
-  flex-grow: 1;
-  height: 30px;
-  font-size: 18px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 
 .todo-input button {

@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
 import Icon from "../icons/Icon";
+import {Input} from "@mui/material";
 
 
 const Task1 = () => {
 
   const [text, setText] = useState('')
   const [tasks, setTasks] = useState([])
+  const [open, setOpen] = React.useState(false);
 
   const textChangeHandler = (event) => {
     setText(event.target.value);
   }
 
   const addTaskHandler = () => {
-
     if (text.trim() !== '') {
-
       const newItem = {
         id: Date.now(),
         text,
@@ -41,16 +41,25 @@ const Task1 = () => {
     setTasks(tasks.filter(task => task.id !== id));
   }
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
 
   return (
     <div className="todo-list">
       <h1>TODO List</h1>
       <div className="todo-input">
-        <input
-          type="text"
-          value={text}
-          onChange={textChangeHandler}
-          placeholder="Add a new item..." />
+        <Input onChange={textChangeHandler}/>
+        {/*<input*/}
+        {/*  type="text"*/}
+        {/*  value={text}*/}
+        {/*  onChange={textChangeHandler}*/}
+        {/*  placeholder="Add a new item..." />*/}
         <button onClick={addTaskHandler}>
           <Icon type="add" />
         </button>

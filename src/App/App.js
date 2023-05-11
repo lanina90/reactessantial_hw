@@ -1,6 +1,7 @@
 import './App.scss';
-import Task1 from "./components/task1/Task1";
-import ParentEl from "./components/task2/ParentEl";
+import Task1 from "../components/TODO/Task1";
+import ParentEl from "../components/counter/ParentEl";
+import Task3 from "../components/task3/Task3";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             кнопку «Готово» діалогове вікно закривається та з'являється новий пункт у «TODO list».</p>
         </div>
 
+        <Task3/>
       </div>
 
     </div>
