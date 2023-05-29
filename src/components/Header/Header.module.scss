@@ -1,0 +1,14 @@
+.header{
+  padding: 20px;
+  height: 50px;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .menu{
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+  }
+}

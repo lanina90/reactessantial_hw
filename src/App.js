@@ -1,16 +1,28 @@
-import picture from './picture.jpeg';
 import './App.scss';
+import {Route, Routes} from "react-router-dom";
+import Products from "./pages/Products";
+import Layout from "./components/Layout";
+import Contacts from "./pages/Contact";
+import ProductPage from "./pages/ProductPage";
+import IAm18 from "./pages/IAm18";
+import RequireAuth from "./components/RequireAuth";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello, world!</h1>
-        <img src={picture} className="App-picture" alt="picture" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt elit quis enim finibus, vitae.
-        </p>
-      </header>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Products/>}/>
+          <Route path='product/:id' element={<ProductPage/>}/>
+          <Route path="contacts" element={<Contacts/>}/>
+
+          <Route path='auth' element={
+            <RequireAuth><IAm18/></RequireAuth>
+          }/>
+
+        </Route>
+      </Routes>
     </div>
   );
 }
