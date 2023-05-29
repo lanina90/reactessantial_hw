@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {Navigate, useLocation, useNavigate} from "react-router-dom";
-import privateRoute, {setAuth} from "../redux/PrivateRouteSlice";
-import AgeConfirmModal from "./modal/AgeConfirmModal";
+import {useNavigate} from "react-router-dom";
+import  {setAuth} from "../redux/PrivateRouteSlice";
 
 
 const RequireAuth = ({children}) => {

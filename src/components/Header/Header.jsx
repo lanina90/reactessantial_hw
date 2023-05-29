@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink} from "react-router-dom";
 import styles from './Header.module.scss'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setAuth} from "../../redux/PrivateRouteSlice";
 
 const Header = () => {
@@ -9,6 +9,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const iAm18Handler = () => {
     const isOver18 = window.confirm('Are you 18 years old?');
+    localStorage.setItem('isOver18', JSON.stringify(isOver18));
     dispatch(setAuth(isOver18));
   }
 
