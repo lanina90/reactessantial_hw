@@ -6,6 +6,7 @@ import Contacts from "./pages/Contact";
 import ProductPage from "./pages/ProductPage";
 import IAm18 from "./pages/IAm18";
 import RequireAuth from "./components/RequireAuth";
+import ErrorPage from "./pages/ErrorPage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='auth' element={
             <RequireAuth><IAm18/></RequireAuth>
           }/>
+          <Route path="*" element={<ErrorPage />} />
 
         </Route>
       </Routes>

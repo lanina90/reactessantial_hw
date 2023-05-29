@@ -3,6 +3,7 @@ import { NavLink} from "react-router-dom";
 import styles from './Header.module.scss'
 import {useDispatch} from "react-redux";
 import {setAuth} from "../../redux/PrivateRouteSlice";
+import ErrorBoundary from "../ErrorBoundary";
 
 const Header = () => {
 
@@ -15,6 +16,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
+
       <NavLink to='/'>LOGO</NavLink>
       <nav className={styles.menu}>
         <NavLink to='/contacts'>Contact us</NavLink>

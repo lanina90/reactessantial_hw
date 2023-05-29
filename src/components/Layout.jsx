@@ -1,11 +1,15 @@
 import React from 'react';
 import Header from "./Header/Header";
 import {Outlet} from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Layout = () => {
   return (
     <>
-      <Header/>
+      <ErrorBoundary>
+        <Header/>
+      </ErrorBoundary>
+
       <Outlet/>
     </>
   );
