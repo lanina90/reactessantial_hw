@@ -1,11 +1,14 @@
-import React from 'react';
-import { NavLink} from "react-router-dom";
+import React, {useContext} from 'react';
+import {NavLink} from "react-router-dom";
 import styles from './Header.module.scss'
 import {useDispatch} from "react-redux";
 import {setAuth} from "../../redux/PrivateRouteSlice";
-import ErrorBoundary from "../ErrorBoundary";
+import {ThemeContext} from "../../context/ThemeProvider";
 
 const Header = () => {
+
+  const {toggleTheme, theme} = useContext(ThemeContext);
+
 
   const dispatch = useDispatch()
   const iAm18Handler = () => {
@@ -13,17 +16,16 @@ const Header = () => {
     localStorage.setItem('isOver18', JSON.stringify(isOver18));
     dispatch(setAuth(isOver18));
   }
-
+  const headerClassName = theme === 'light' ? styles.lightHeader : styles.darkHeader;
   return (
-    <div className={styles.header}>
+    <div className={`${styles.header} ${headerClassName}`}>
 
       <NavLink to='/'>LOGO</NavLink>
       <nav className={styles.menu}>
         <NavLink to='/contacts'>Contact us</NavLink>
-        <button onClick={iAm18Handler}>
-          <NavLink to='/auth'>I'm 18 + </NavLink>
-        </button>
+        <NavLink onClick={iAm18Handler} to='/auth'>I'm 18 + </NavLink>
       </nav>
+      <button onClick={toggleTheme}>Toggle Theme</button>
     </div>
   );
 };

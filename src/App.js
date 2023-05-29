@@ -7,10 +7,12 @@ import ProductPage from "./pages/ProductPage";
 import IAm18 from "./pages/IAm18";
 import RequireAuth from "./components/RequireAuth";
 import ErrorPage from "./pages/ErrorPage";
+import {ThemeProvider} from "./context/ThemeProvider";
 
 
 function App() {
   return (
+    <ThemeProvider>
     <div className="App">
       <Routes>
         <Route path='/' element={<Layout/>}>
@@ -26,6 +28,7 @@ function App() {
         </Route>
       </Routes>
     </div>
+    </ThemeProvider>
   );
 }
 
