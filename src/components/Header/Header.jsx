@@ -1,34 +1,32 @@
-import React, {useContext, useState} from 'react';
-import {NavLink} from "react-router-dom";
+import React, {useContext, useEffect, useState} from 'react';
+import {Link, NavLink} from "react-router-dom";
 import styles from './Header.module.scss'
 import {ThemeContext} from "../../context/ThemeProvider";
 import Modal from "../Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
-import {setAuth} from "../../redux/PrivateRouteSlice";
+import {setAuth} from "../../redux/slices/PrivateRouteSlice";
+import {setModalOpen} from "../../redux/slices/ModalSlice";
 
 const Header = () => {
-  const isOver18 = useSelector(state => state.privateRoute.isOver18)
+
+  const isModalOpen = useSelector((state) => state.modal.isOpen);
   const dispatch = useDispatch()
   const {toggleTheme, theme} = useContext(ThemeContext);
-  const [isModalOpen, setIsModalOpen] = useState(false)
+
+
+  useEffect(() => {
+    const localStorageIsOver18 = JSON.parse(localStorage.getItem('isOver18'));
+
+    if (localStorageIsOver18 !== null) {
+      dispatch(setAuth(localStorageIsOver18));
+    }
+
+  }, []);
 
   const iAm18Handler = () => {
-    setIsModalOpen(true);
+    dispatch(setModalOpen(true));
   };
 
-  const handleModalConfirm = () => {
-    const isOver18 = true;
-    localStorage.setItem('isOver18', JSON.stringify(isOver18));
-    dispatch(setAuth(isOver18))
-    setIsModalOpen(false);
-
-  };
-  const handleModalCancel = () => {
-    dispatch(setAuth(false))
-    localStorage.setItem('isOver18', JSON.stringify(isOver18));
-    setIsModalOpen(false);
-
-  };
 
   const headerClassName = theme === 'light' ? styles.lightHeader : styles.darkHeader;
   return (
@@ -42,12 +40,7 @@ const Header = () => {
       <button onClick={toggleTheme}>Toggle Theme</button>
 
       {
-        isModalOpen && <Modal
-          isModalOpen={isModalOpen}
-          message="Are you 18 years old?"
-          onConfirm={handleModalConfirm}
-          onCancel={handleModalCancel}
-        />
+        isModalOpen && <Modal />
       }
     </div>
   );

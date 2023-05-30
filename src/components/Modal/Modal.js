@@ -1,26 +1,40 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './Modal.scss'
 import Portal from "../Portal/Portal";
+import {useDispatch, useSelector} from "react-redux";
+import {cancelAgeConfirmation, confirmAge, setModalOpen} from "../../redux/slices/ModalSlice";
+import {useNavigate} from "react-router-dom";
 
-const Modal = ({ message, onConfirm, onCancel, isModalOpen }) => {
-  const [showModal, setShowModal] = useState(isModalOpen);
 
-  useEffect(() => {
-    setShowModal(isModalOpen);
-  }, [isModalOpen]);
+
+
+const Modal = () => {
+  const isModalOpen = useSelector((state) => state.modal.isOpen);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const closeModal = () => {
-    setShowModal(false);
+    dispatch(setModalOpen(false));
+    dispatch(cancelAgeConfirmation());
+  };
+  const handleCancel = () => {
+    dispatch(cancelAgeConfirmation());
+    navigate('/')
   };
 
-  return showModal ? (
+  const handleConfirm = () => {
+    dispatch(confirmAge());
+
+  };
+
+  return isModalOpen ? (
     <div className='modal-w'>
       <Portal>
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-wrapper">
             <div className="modal">
               <div className='modal-window'>
-                <h2>{message}</h2>
+                <h2>Are you 18 years old?</h2>
                 <svg
                   onClick={closeModal}
                   height="38"
@@ -31,8 +45,8 @@ const Modal = ({ message, onConfirm, onCancel, isModalOpen }) => {
                 </svg>
               </div>
               <div className="modal-btn">
-                <button onClick={onConfirm} className="btn">Yes</button>
-                <button onClick={onCancel} className="btn">No</button>
+                <button onClick={handleConfirm} className="btn">Yes</button>
+                <button onClick={handleCancel} className="btn">No</button>
               </div>
             </div>
           </div>

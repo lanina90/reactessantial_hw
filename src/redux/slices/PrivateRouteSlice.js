@@ -1,14 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 export const privateRouteSlice = createSlice({
-  name: 'private',
+  name: 'privateRoute',
   initialState: {
     isOver18: JSON.parse(localStorage.getItem('isOver18')) || false,
 
   },
   reducers: {
     setAuth(state, action) {
-      state.isOver18 = action.payload
+      state.isOver18 = Boolean(action.payload)
     }
   }
 })
